@@ -1,0 +1,4 @@
+﻿1.https://stackoverflow.com/questions/21810075/sqlite-create-table-and-add-a-row-if-the-table-doesnt-exist
+2.https://dzone.com/articles/sorting-large-csv-files-using-sqlite 
+3.https://stackoverflow.com/questions/20419630/saving-datatable-to-sqlite-database-by-adapter-update/36367692
+4.https://stackoverflow.com/questions/20419630/saving-datatable-to-sqlite-database-by-adapter-update

@@ -64,6 +64,7 @@
     <Compile Include="SQLite.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TODO.txt" />
     <None Include="App.config" />
     <Content Include="DBCSVReader.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
