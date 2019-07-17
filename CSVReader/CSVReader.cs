@@ -60,6 +60,7 @@ namespace CSVReader
                 {
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.WriteLine($" FILE LOCKED {count}:{currentFile}");
+                    Console.ReadKey();
                 }
 
             }
@@ -141,7 +142,18 @@ namespace CSVReader
             using (var reader = new StreamReader(filePath))
             using (var csv = new CsvReader(reader))
             {
-              
+                csv.Read();
+                csv.ReadHeader();
+                List<string> headers = csv.Context.HeaderRecord.ToList();
+
+                using (var scope = Container.BeginLifetimeScope())
+                {
+                    var writer = scope.Resolve<ISQLLite>();
+                    dtMerged.TableName = "tblMerged";
+                    var numberOfSavedRecords = writer.SaveDataTable(dtMerged);
+                    Console.WriteLine($" ***** CSV READER SUCCESSFULLY SAVED {numberOfSavedRecords} *****");
+                }
+
                 // Do any configuration to `CsvReader` before creating CsvDataReader.
                 using (var dr = new CsvDataReader(csv))
                 {
